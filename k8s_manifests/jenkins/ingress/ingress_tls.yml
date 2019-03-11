@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: jenkins
+  annotations:
+    certmanager.k8s.io/cluster-issuer: issuer-staging
+    certmanager.k8s.io/acme-challenge-type: dns01
+    certmanager.k8s.io/acme-dns01-provider: route53
+spec:
+  rules:
+    - host: raca-jenkins.ballab.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: jenkins
+              servicePort: 8080
+  tls:
+    - hosts:
+        - raca-jenkins.ballab.com
+      secretName: raca-jenkins-ballab-com-tls-staging
