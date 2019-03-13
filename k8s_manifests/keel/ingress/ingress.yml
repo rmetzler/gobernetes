@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-keel
+  namespace: keel
+  annotations:
+#    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - host: raca-keel.ballab.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: keel
+              servicePort: 9300

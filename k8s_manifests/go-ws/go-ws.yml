@@ -3,6 +3,12 @@ kind: Deployment
 metadata:
   name: go-ws-deployment
   namespace: go-ws
+  labels:
+    name: "go-ws"
+    keel.sh/policy: all
+    keel.sh/trigger: poll
+  annotations:
+    keel.sh/pollSchedule: "@every 10m"
 spec:
   replicas: 1
   selector:
@@ -20,6 +26,11 @@ spec:
         ports:                                      
         - containerPort: 8080
           name: http
+        env:
+        - name: host
+          value: "mongo"
+        - name: port
+          value: "27017"
         volumeMounts:
           - mountPath: /files
             name: files-volume

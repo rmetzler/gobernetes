@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-keel
+  namespace: keel
+  annotations:
+    certmanager.k8s.io/cluster-issuer: issuer-prod
+    certmanager.k8s.io/acme-challenge-type: dns01
+    certmanager.k8s.io/acme-dns01-provider: route53
+spec:
+  rules:
+    - host: raca-keel.ballab.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: keel
+              servicePort: 9300
+  tls:
+    - hosts:
+        - raca-keel.ballab.com
+      secretName: raca-keel-ballab-com-tls-prod
