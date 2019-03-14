@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongo-svc
+  namespace: go-ws
+spec:
+  selector:
+    app: mongo
+  ports:
+  - name: mongo-svc-port
+    port: 27017
+    targetPort: 27017
+

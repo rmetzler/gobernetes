@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: go-ws
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:3.6-stretch
+        ports:
+        - containerPort: 27017
+          name: mongodb-port
+        volumeMounts:
+        - name: mongodb-vol
+          mountPath: /data/db
+      volumes:
+      - name: mongodb-vol
+        hostPath:
+          path: /data/mongodb
+          type: DirectoryOrCreate
+

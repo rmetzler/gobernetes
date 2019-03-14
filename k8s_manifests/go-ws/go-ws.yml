@@ -27,7 +27,7 @@ spec:
           name: http
         env:
         - name: mongo_host
-          value: "mongo:27017"
+          value: "mongo-svc:27017"
         volumeMounts:
           - mountPath: /files
             name: files-volume
