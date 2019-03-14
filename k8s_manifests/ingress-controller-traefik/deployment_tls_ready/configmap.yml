@@ -15,3 +15,5 @@ data:
       [entryPoints.https]
       address = ":443"
         [entryPoints.https.tls]
+
+    [accessLog]
