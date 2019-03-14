@@ -26,10 +26,8 @@ spec:
         - containerPort: 8080
           name: http
         env:
-        - name: host
-          value: "mongo"
-        - name: port
-          value: "27017"
+        - name: mongo_host
+          value: "mongo:27017"
         volumeMounts:
           - mountPath: /files
             name: files-volume
