@@ -1,12 +1,4 @@
 ---
-# Source: keel/templates/00-namespace.yaml
-
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: "keel"
-
----
 # Source: keel/templates/service-account.yaml
 apiVersion: v1
 kind: ServiceAccount
