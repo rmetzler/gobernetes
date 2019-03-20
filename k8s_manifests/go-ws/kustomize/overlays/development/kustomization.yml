@@ -1,0 +1,9 @@
+namePrefix: dev-
+commonLabels:
+  variant: dev
+commonAnnotations:
+  note: Hello, I am dev environment!
+bases:
+  - ../../base
+patches:
+  - replica_count.yml

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-ws-deployment
+  namespace: go-ws
+  labels:
+    name: "go-ws"
+    keel.sh/policy: all
+  annotations:
+    keel.sh/pollSchedule: "@every 1m"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-ws
+  template:
+    metadata:
+      labels:
+        app: go-ws
+    spec:
+      containers:
+      - name: go-ws
+        image: aracki/go-web-server
+        imagePullPolicy: Always
+        ports:                                      
+        - containerPort: 8080
+          name: http
+        env:
+        - name: mongo_host
+          value: "mongo-svc:27017"
+        volumeMounts:
+          - mountPath: /files
+            name: files-volume
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 2
+          periodSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - ls
+            - /files
+          periodSeconds: 5
+        resources:
+          limits:
+            memory: "50Mi"
+      volumes:
+        - name: files-volume
+          hostPath:
+            path: /data
+            type: Directory

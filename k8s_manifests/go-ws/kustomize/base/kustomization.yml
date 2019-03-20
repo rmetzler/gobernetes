@@ -1,0 +1,5 @@
+commonLabels:
+  app: go-ws
+resources:
+- go-ws.yml
+- service.yml
