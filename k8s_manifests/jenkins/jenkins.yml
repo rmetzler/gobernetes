@@ -18,7 +18,7 @@ spec:
           image: jenkins/jenkins:lts
           env:
             - name: JAVA_OPTS
-              value: -Xmx2048m -XX:MaxPermSize=1024m
+              value: -Xmx1024m
           ports:
             - name: http-port
               containerPort: 8080
@@ -27,6 +27,12 @@ spec:
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home
+          resources:
+            requests:
+              memory: "300Mi"
+            limits:
+              memory: "1000Mi"
+
       volumes:
         - name: jenkins-home
           hostPath:
