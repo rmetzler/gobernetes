@@ -1,15 +1,20 @@
 # gobernetes
 
-Collection of miscellaneous Kubernetes resources. Deployed on both bare-metal AWS and GKE.
+Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS and GKE.
 
-### Kubernetes [components](https://github.com/Aracki/gobernetes/tree/master/k8s_manifests) include:
+## Kubernetes components included:
 
 * Simple web server application written in Go - [go-ws](https://github.com/Aracki/go-ws)
-* Ingress Controllers
-    * Nginx
-    * Traefik
-* Prometheus
-* Alert Manager
-* Grafana
-* Jenkins
-* Cert-manager
+* MongoDB
+* Ingress Controllers - in order for the Ingress resources to work _(read this [Bare metal considerations](https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#bare-metal-considerations))_
+   * [Nginx](https://github.com/kubernetes/ingress-nginx)
+   * [Traefik](https://docs.traefik.io/user-guide/kubernetes/)
+* [Monitoring stack](https://github.com/coreos/prometheus-operator)
+   * Prometheus   
+   * Alert Manager
+   * Grafana
+* CI/CD stack
+   * Jenkins
+   * [Keel](https://github.com/keel-hq/keel)
+* [cert-manager](https://github.com/jetstack/cert-manager/) - for automated provisioning TLS certs for both staging/production environments
+* Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) & [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-a-configmap) for storing secret and non-secret configurations
