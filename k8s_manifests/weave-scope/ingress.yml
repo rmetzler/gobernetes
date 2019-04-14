@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: weave
+  annotations:
+    certmanager.k8s.io/cluster-issuer: issuer-staging
+    certmanager.k8s.io/acme-challenge-type: dns01
+    certmanager.k8s.io/acme-dns01-provider: route53
+spec:
+  rules:
+    - host: raca-weave.ballab.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: weave-scope-app
+              servicePort: 80
+  tls:
+    - hosts:
+        - raca-weave.ballab.com
+      secretName: raca-weave-ballab-com-tls-staging
