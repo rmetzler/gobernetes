@@ -138,15 +138,7 @@ spec:
   scope: Namespaced
 
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: cert-manager
-  labels:
-    certmanager.k8s.io/disable-validation: "true"
 
----
----
 # Source: cert-manager/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
