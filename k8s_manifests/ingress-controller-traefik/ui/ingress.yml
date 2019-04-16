@@ -8,7 +8,7 @@ metadata:
     certmanager.k8s.io/acme-challenge-type: dns01
     certmanager.k8s.io/acme-dns01-provider: route53
     traefik.ingress.kubernetes.io/auth-type: "basic"
-    traefik.ingress.kubernetes.io/auth-secret: "traefik-ui-basic-auth"
+    traefik.ingress.kubernetes.io/auth-secret: "traefik-basic-auth"
 spec:
   rules:
     - host: raca-traefik.ballab.com

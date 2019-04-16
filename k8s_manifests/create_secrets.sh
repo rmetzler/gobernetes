@@ -11,4 +11,8 @@ kubectl create -n cert-manager secret generic route53 --from-file=secrets/secret
 kubectl create -n monitoring secret generic grafana-auth --from-file=secrets/grafana-auth
 
 # TRAEFIK-UI BASIC AUTH
-kubectl create -n traefik secret generic traefik-ui-basic-auth --from-file=secrets/basic_auth
+kubectl create -n traefik secret generic traefik-basic-auth --from-file=secrets/basic_auth
+
+# WEAVE-SCOPE BASIC AUTH
+kubectl create -n weave secret generic traefik-basic-auth --from-file=secrets/basic_auth
+
