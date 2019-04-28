@@ -20,7 +20,7 @@ Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS 
 * Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) & [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-a-configmap) for storing secret and non-secret configurations
 
 
-## Set up Kubernetes cluster with kubeadm
+## Set up Kubernetes cluster
 
 Tested with:<br>
 
@@ -29,9 +29,8 @@ _kubectl: v1.13.0_<br>
 _kubernetes: v1.13.5_<br>
 _nodes: CentOS 7.6.1810 (Core)_<br>
 
-### Prepare nodes
+### Prepare nodes / install kubeadm
 
-Tested with CentOS 7.6.1810 (Core)
 Read official documentation - [Before you begin](https://kubernetes.io/docs/setup/independent/install-kubeadm/)
 
 * All nodes requirement:
@@ -45,9 +44,9 @@ Read official documentation - [Before you begin](https://kubernetes.io/docs/setu
 		* `yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
 		* `yum update && yum install docker-ce-18.06.1.ce`
 	* Install [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/), [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)  and kubelet (check versions and which yum repository should be added)
-	* Take a look at [kubeadm version skew policy](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#version-skew-policy)  and [all components version skew policy](https://kubernetes.io/docs/setup/version-skew-policy/) (tools: v1.13.0 & server: v1.13.1)
-	* Follow notes for setting up sysctl (only for CentOS)
-	* Run docker & kubelet via systemctl. Also make it start at system boot:
+	* Take a look at [kubeadm version skew policy](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#version-skew-policy)  and [all components version skew policy](https://kubernetes.io/docs/setup/version-skew-policy/)
+	* Follow notes for setting up sysctl: `net.bridge.bridge-nf-call-iptables` (only for CentOS)
+	* Run docker & kubelet via systemctl. Also make them start at system boot:
 		* `systemctl start docker` `systemctl enable docker`
 		* `systemctl start kubelet` `systemctl enable kubelet`
 	
@@ -69,7 +68,7 @@ Read official documentation - [Before you begin](https://kubernetes.io/docs/setu
 	* 2 coredns (will not work without pod network)
 	* flannel (one for each node - NEEDS to be applied manually)
 
-* If `k config view` doesnt return anything ‘export KUBECONFIG=_etc_kubernetes/admin.conf‘ or look this [setting config](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable)
+* If `k config view` does not return anything - `export KUBECONFIG=/etc/kubernetes/admin.conf` or look at this [setting config](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable)
 * [Optional] Use [heptio/sonobuoy](https://github.com/heptio/sonobuoy) to diagnose K8s cluster and run conformance tests:
 	* `export GOPATH=$HOME/go`
 	* `export GOROOT=/usr/local/bin/go/`
