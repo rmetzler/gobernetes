@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: go-ws
-        image: aracki/go-web-server
+        image: aracki/go-web-server:latest
         imagePullPolicy: Always
         ports:                                      
         - containerPort: 8080
@@ -34,7 +34,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: http
           initialDelaySeconds: 2
           periodSeconds: 3
           failureThreshold: 3
