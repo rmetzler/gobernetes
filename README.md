@@ -2,6 +2,8 @@
 
 Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS and GKE.
 
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Aracki)
+
 ## Kubernetes components included:
 
 * Simple web server application written in Go - [go-ws](https://github.com/Aracki/go-ws)
