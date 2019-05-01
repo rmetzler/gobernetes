@@ -23,7 +23,8 @@ Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS 
 
 * [Bootstrap AWS infrastructure](docs/01-bootstrap-aws-infrastructure.md)
 * [Bootstrap K8s cluster](docs/02-bootstrap-k8s-cluster.md)
-* Set up GlusterFS
-* Set up Ingress TLS termination
+* [Set up GlusterFS](docs/03-set-up-glusterfs.md)
+* [Set up Ingress with cert-manager](docs/04-set-up-ingress.md)
+* [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
 * Set up private docker registry
 * Set up Jenkins on k8s
