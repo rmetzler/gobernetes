@@ -18,3 +18,12 @@ Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS 
    * [Keel](https://github.com/keel-hq/keel)
 * [cert-manager](https://github.com/jetstack/cert-manager/) - for automated provisioning TLS certs for both staging/production environments
 * Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) & [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-a-configmap) for storing secret and non-secret configurations
+
+## Documentation:
+
+* [Bootstrap AWS infrastructure](docs/01-bootstrap-aws-infrastructure.md)
+* [Bootstrap K8s cluster](docs/02-bootstrap-k8s-cluster.md)
+* Set up GlusterFS
+* Set up Ingress TLS termination
+* Set up private docker registry
+* Set up Jenkins on k8s
