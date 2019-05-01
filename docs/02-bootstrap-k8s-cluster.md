@@ -58,3 +58,29 @@ Read official documentation - [Before you begin](https://kubernetes.io/docs/setu
 * To use kubectl remotely open up kube API server port: 6443, SCP whole .kube folder to local machine. Then, it is possible to use kubectl with `--insecure-skip-tls-verify`.
 * Instead of coping whole `.kube` folder; you can just copy `certificate-authority-data`, `client-certificate-data` & `client-key-data` into your local .kube/config file
 * To do this [securely](https://stackoverflow.com/a/46360852/2884309) ; for me restarting kubeadm and initializing it with `--apiserver-cert-extra-sans` worked.
+
+## Restarting kubeadm
+
+* **On both master and workers:**
+1. `kubeadm reset` …it will turn off kubeletes
+2. `systemctl stop kubelet` `systemctl stop docker`
+3. `rm -rf /var/lib/cni/` (some of these commands are executed already; see kubeadm reset logs for more information)
+4. `rm -rf /var/lib/kubelet/*`
+5. `rm -rf /etc/cni/`
+6. `ifconfig cni0 down` `ip link delete cni0`
+7. `ifconfig flannel.1 down` `ip link delete flannel.1`
+8. `ifconfig docker0 down`
+
+* **Master only:** 
+1. Start docker
+2. `kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-cert-extra-sans=<PUBLIC_IP_MASTER_NODE>`
+3. Go back to CENTOS user.
+4. For using kubectl again with a current user:
+	* `mkdir -p $HOME/.kube`
+	* `sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config`
+	* `sudo chown $(id -u):$(id -g) $HOME/.kube/config`
+5. Add flannel (or other network add-on) to the k8s cluster.
+
+* **Worker only:** 
+1. Start docker
+2. Join worker nodes with a command from the output.
