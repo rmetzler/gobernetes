@@ -14,8 +14,8 @@ Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS 
    * Alert Manager
    * Grafana
 * CI/CD stack
-   * Jenkins
-   * [Keel](https://github.com/keel-hq/keel)
+   * [Jenkins](k8s_manifests/jenkins)
+   * [Keel](k8s_manifests/keel)
 * [cert-manager](https://github.com/jetstack/cert-manager/) - for automated provisioning TLS certs for both staging/production environments
 * Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) & [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-a-configmap) for storing secret and non-secret configurations
 
@@ -26,5 +26,4 @@ Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS 
 * [Set up GlusterFS](docs/03-set-up-glusterfs.md)
 * [Set up Ingress with cert-manager](docs/04-set-up-ingress.md)
 * [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
-* Set up private docker registry
-* Set up Jenkins on k8s
+* [Set up private docker registry](docs/06-set-up-private-registry.md)
