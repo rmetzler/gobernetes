@@ -1,10 +1,11 @@
 # gobernetes
 
-Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS and GKE.
+Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included) & [documentations](#documentation). 
+<br><br>Tested on both bare-metal AWS and GKE.
 
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Aracki)
 
-# Tools / kubectl helpers
+## Tools
 * [Kustomize](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/) (now part of kubectl since 1.14)
 * [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 * [kubectx + kubens](https://github.com/ahmetb/kubectx) - switch between clusters and namespaces
@@ -20,7 +21,7 @@ Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS 
 * [popeye](https://github.com/derailed/popeye) - k8s cluster resource sanitizer
 
 ## Kubernetes components included:
-
+* `k8s_manifests/` folder contains all the manifests for k8s components. 
 * Simple web server application written in Go - [go-ws](https://github.com/Aracki/go-ws)
 * MongoDB
 * Ingress Controllers - in order for the Ingress resources to work _(read this [Bare metal considerations](https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#bare-metal-considerations))_
@@ -37,7 +38,6 @@ Collection of miscellaneous Kubernetes resources. Tested on both bare-metal AWS 
 * Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) & [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-a-configmap) for storing secret and non-secret configurations
 
 ## Documentation:
-
 * [Bootstrap AWS infrastructure](docs/01-bootstrap-aws-infrastructure.md)
 * [Bootstrap K8s cluster](docs/02-bootstrap-k8s-cluster.md)
 * [Set up GlusterFS](docs/03-set-up-glusterfs.md)
