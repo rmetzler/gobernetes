@@ -21,7 +21,7 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * [popeye](https://github.com/derailed/popeye) - k8s cluster resource sanitizer
 
 ## Kubernetes components included:
-* `k8s_manifests/` folder contains all the manifests for k8s components. 
+`k8s_manifests/` folder contains all the manifests for: 
 * Simple web server application written in Go - [go-ws](https://github.com/Aracki/go-ws)
 * MongoDB
 * Ingress Controllers - in order for the Ingress resources to work _(read this [Bare metal considerations](https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#bare-metal-considerations))_
@@ -39,8 +39,8 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 
 ## Documentation:
 * [Bootstrap AWS infrastructure](docs/01-bootstrap-aws-infrastructure.md)
-* [Bootstrap K8s cluster](docs/02-bootstrap-k8s-cluster.md)
+* [Bootstrap K8s cluster with kubeadm](docs/02-bootstrap-k8s-cluster.md)
 * [Set up GlusterFS](docs/03-set-up-glusterfs.md)
-* [Set up Ingress with cert-manager](docs/04-set-up-ingress.md)
+* [Set up Ingress + TLS termination with cert-manager](docs/04-set-up-ingress.md)
 * [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
 * [Set up private docker registry](docs/06-set-up-private-registry.md)
