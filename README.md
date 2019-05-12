@@ -1,9 +1,11 @@
 # gobernetes
 
+<img src="assets/gobernetes-logo-text.jpeg" align="right" width="300" heigh="auto">
+
 Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included) & [documentations](#documentation). 
 <br><br>Tested on both bare-metal AWS and GKE.
 
-[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Aracki)
+<br><br>
 
 ## Tools
 * [Kustomize](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/) (now part of kubectl since 1.14)
