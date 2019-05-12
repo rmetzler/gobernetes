@@ -1,6 +1,6 @@
-# gobernetes
-
 <img src="assets/gobernetes-logo-text.jpeg" align="right" width="300" heigh="auto">
+
+# gobernetes
 
 Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included) & [documentations](#documentation). 
 <br><br>Tested on both bare-metal AWS and GKE.
