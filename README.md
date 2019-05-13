@@ -8,7 +8,6 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 
 ## Tools
 * [Kustomize](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/) (now part of kubectl since 1.14)
-* [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 * [kubectx + kubens](https://github.com/ahmetb/kubectx) - switch between clusters and namespaces
 * [kube-fzf](https://github.com/arunvelsriram/kube-fzf) - findpod/tailpod/execpod/describepod with [fzf](https://github.com/junegunn/fzf)
 * [kubetail](https://github.com/johanhaleby/kubetail) - tail k8s logs
@@ -19,7 +18,9 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * [kubediff](https://github.com/weaveworks/kubediff) - show differences between running state and version controlled configuration.
 * [kubefwd](https://github.com/txn2/kubefwd) - bulk port forwarding k8s services for local dev
 * [kube-ps1](https://github.com/jonmosco/kube-ps1) - k8s prompt info for bash and zsh
-* [popeye](https://github.com/derailed/popeye) - k8s cluster resource sanitizer
+* [pop eye](https://github.com/derailed/popeye) - k8s cluster resource sanitizer
+* [kubectl cheat sheet](/https://kubernetes.io/docs/reference/kubectl/cheatsheet//)
+* [Fish auto completion for kubectl](https://gist.github.com/Aracki/cf422173371d2118ae94bb6821f074e0)
 
 ## Kubernetes components included:
 `k8s_manifests/` folder contains all the manifests for: 
