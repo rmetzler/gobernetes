@@ -2,16 +2,15 @@
 
 # gobernetes
 
-Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included) & [documentations](#documentation). 
-<br><br>Tested on both bare-metal AWS and GKE.
+Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included), [documentations](#documentation) & [useful commands](#useful-commands). 
 
-<br><br>
+<br><br><br><br>
 
 ## Tools
 * [Kustomize](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/) (now part of kubectl since 1.14)
 * [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 * [kubectx + kubens](https://github.com/ahmetb/kubectx) - switch between clusters and namespaces
-* [kube-fzf](https://github.com/arunvelsriram/kube-fzf) - search_tail_exec/describe pods with [fzf](https://github.com/junegunn/fzf)
+* [kube-fzf](https://github.com/arunvelsriram/kube-fzf) - findpod/tailpod/execpod/describepod with [fzf](https://github.com/junegunn/fzf)
 * [kubetail](https://github.com/johanhaleby/kubetail) - tail k8s logs
 * [rakkess](https://github.com/corneliusweig/rakkess) - show an access matrix
 * [rbac-lookup](https://github.com/reactiveops/rbac-lookup) - find k8s roles and cluster roles
@@ -46,3 +45,23 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * [Set up Ingress + TLS termination with cert-manager](docs/04-set-up-ingress.md)
 * [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
 * [Set up private docker registry](docs/06-set-up-private-registry.md)
+
+## Useful commands
+* List all resources in a namespace: `kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n <namespace>`
+* Gets IPs of pods: `kubectl get pods --selector=app=go-ws -o jsonpath='{.items[*].status.podIP}'`
+* List all containers in k8s cluster: `kubectl get pods -o jsonpath={.items[*].spec.containers[*].name} --all-namespaces`
+* Activate these with **kube-fzf**:
+	* `findpod` + `describepod` + `execpod` + `tailpod`
+* Kill pod forcefully:
+	* `kubectl delete pods <pod> --grace-period=0 --force`
+	* `kubectl patch pod <pod> -p '{"metadata":{"finalizers":null}}'` 
+* Replace resource forcefully: `kubectl replace --force -f go-web-server.yml`
+* Print the supported API versions/resources: 
+	* `kubectl api-versions`
+	* `kubectl api-resources` 
+* Overwriting the existing labels: `kubectl label --overwrite pods foo status=unhealthy`
+* Show the default values for kubelet: `kubeadm config print-default --api-objects KubeletConfiguration`
+* Update existing ConfigMap based on a file: 
+	```
+	kubectl create configmap traefik-conf --from-file=traefik.toml --dry-run -o yaml | kubectl replace configmap traefik-conf -f - -n traefik
+	``` 
