@@ -22,26 +22,6 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * [kube-ps1](https://github.com/jonmosco/kube-ps1) - k8s prompt info for bash and zsh
 * [popeye](https://github.com/derailed/popeye) - k8s cluster resource sanitizer
 
-## Useful commands
-* List all resources in a namespace: `kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n <namespace>`
-* Gets IPs of pods: `kubectl get pods --selector=app=go-ws -o jsonpath='{.items[*].status.podIP}'`
-* List all containers in k8s cluster: `kubectl get pods -o jsonpath={.items[*].spec.containers[*].name} --all-namespaces`
-* Activate these with **kube-fzf**:
-	* `findpod` + `describepod` + `execpod` + `tailpod`
-* Kill pod forcefully:
-	* `kubectl delete pods <pod> --grace-period=0 --force`
-	* `kubectl patch pod <pod> -p '{"metadata":{"finalizers":null}}'` 
-* Replace resource forcefully: `kubectl replace --force -f go-web-server.yml`
-* Print the supported API versions/resources: 
-	* `kubectl api-versions`
-	* `kubectl api-resources` 
-* Overwriting the existing labels: `kubectl label --overwrite pods foo status=unhealthy`
-* Show the default values for kubelet: `kubeadm config print-default --api-objects KubeletConfiguration`
-* Update existing ConfigMap based on a file: 
-	```
-	kubectl create configmap traefik-conf --from-file=traefik.toml --dry-run -o yaml | kubectl replace configmap traefik-conf -f - -n traefik
-	``` 
-
 ## Kubernetes components included:
 `k8s_manifests/` folder contains all the manifests for: 
 * Simple web server application written in Go - [go-ws](https://github.com/Aracki/go-ws)
@@ -66,3 +46,23 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * [Set up Ingress + TLS termination with cert-manager](docs/04-set-up-ingress.md)
 * [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
 * [Set up private docker registry](docs/06-set-up-private-registry.md)
+
+## Useful commands
+* List all resources in a namespace: `kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n <namespace>`
+* Gets IPs of pods: `kubectl get pods --selector=app=go-ws -o jsonpath='{.items[*].status.podIP}'`
+* List all containers in k8s cluster: `kubectl get pods -o jsonpath={.items[*].spec.containers[*].name} --all-namespaces`
+* Activate these with **kube-fzf**:
+	* `findpod` + `describepod` + `execpod` + `tailpod`
+* Kill pod forcefully:
+	* `kubectl delete pods <pod> --grace-period=0 --force`
+	* `kubectl patch pod <pod> -p '{"metadata":{"finalizers":null}}'` 
+* Replace resource forcefully: `kubectl replace --force -f go-web-server.yml`
+* Print the supported API versions/resources: 
+	* `kubectl api-versions`
+	* `kubectl api-resources` 
+* Overwriting the existing labels: `kubectl label --overwrite pods foo status=unhealthy`
+* Show the default values for kubelet: `kubeadm config print-default --api-objects KubeletConfiguration`
+* Update existing ConfigMap based on a file: 
+	```
+	kubectl create configmap traefik-conf --from-file=traefik.toml --dry-run -o yaml | kubectl replace configmap traefik-conf -f - -n traefik
+	``` 
