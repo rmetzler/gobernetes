@@ -2,7 +2,7 @@
 
 # gobernetes
 
-Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included) & [documentations](#documentation). 
+Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included), [documentations](#documentation) & [useful commands](#useful-commands). 
 <br><br>Tested on both bare-metal AWS and GKE.
 
 <br><br>
@@ -35,15 +35,12 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * Print the supported API versions/resources: 
 	* `kubectl api-versions`
 	* `kubectl api-resources` 
-* Update existing ConfigMap/Secret based on file: 
+* Overwriting the existing labels: `kubectl label --overwrite pods foo status=unhealthy`
+* Show the default values for kubelet: `kubeadm config print-default --api-objects KubeletConfiguration`
+* Update existing ConfigMap based on a file: 
 	```
 	kubectl create configmap traefik-conf --from-file=traefik.toml --dry-run -o yaml | kubectl replace configmap traefik-conf -f - -n traefik
 	``` 
-	```
-	kubectl create secret generic production-tls --from-file=./tls.key --from-file=./tls.crt --dry-run -o yaml | kubectl apply -f -
-	```
-* Overwriting the existing labels: `kubectl label --overwrite pods foo status=unhealthy`
-* Show the default values for kubelet: `kubeadm config print-default --api-objects KubeletConfiguration`
 
 ## Kubernetes components included:
 `k8s_manifests/` folder contains all the manifests for: 
