@@ -3,9 +3,8 @@
 # gobernetes
 
 Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included), [documentations](#documentation) & [useful commands](#useful-commands). 
-<br><br>Tested on both bare-metal AWS and GKE.
 
-<br><br>
+<br><br><br><br>
 
 ## Tools
 * [Kustomize](https://kubernetes.io/blog/2018/05/29/introducing-kustomize-template-free-configuration-customization-for-kubernetes/) (now part of kubectl since 1.14)
