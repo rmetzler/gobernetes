@@ -47,6 +47,24 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
 * [Set up private docker registry](docs/06-set-up-private-registry.md)
 
+## Articles:
+* About networking:
+	* [IP, subnets, CIDR](https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking)
+	* [Network interfaces and protocols](https://www.digitalocean.com/community/tutorials/an-introduction-to-networking-terminology-interfaces-and-protocols)
+* K8s components - good introduction material
+	* [Understanding kubernetes networking: pods](https://medium.com/google-cloud/understanding-kubernetes-networking-pods-7117dd28727)
+	* [Understanding kubernetes networking: services](https://medium.com/google-cloud/understanding-kubernetes-networking-services-f0cb48e4cc82)
+	* [Understanding kubernetes networking: ingress](https://medium.com/google-cloud/understanding-kubernetes-networking-ingress-1bc341c84078)
+	* [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
+* [The 12 Factor App](https://12factor.net/)
+* [12 Fractured Apps](https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c)
+* [Modernizing Applications for Kubernetes](https://dev.to/digitalocean/modernizing-applications-for-kubernetes-1hon)
+* [Kubernetes the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way) - Bootstrap Kubernetes the hard way on Google Cloud Platform. No scripts.
+* Great [article](https://medium.com/spire-labs/utilizing-kubernetes-liveness-and-readiness-probes-to-automatically-recover-from-failure-2fe0314f2b2e) about utilizing k8s liveness and readiness probes to automatically recover from failure
+* Great [article](https://docs.bitnami.com/kubernetes/how-to/configure-rbac-in-your-kubernetes-cluster/) about configuring *RBAC*
+* [Configuration Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/#general-configuration-tips)
+* [Pain(less) NGINX Ingress](https://danielfm.me/posts/painless-nginx-ingress.html)
+
 ## Useful commands
 * List all resources in a namespace: `kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n <namespace>`
 * Gets IPs of pods: `kubectl get pods --selector=app=go-ws -o jsonpath='{.items[*].status.podIP}'`
