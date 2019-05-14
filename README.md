@@ -2,7 +2,7 @@
 
 # gobernetes
 
-Collection of miscellaneous [helper tools](#tools), [must-read articles](#articles), [personal documentations](#documentation), [Kubernetes resources](#kubernetes-components-included) & [useful commands](#useful-commands). 
+Collection of miscellaneous [helper tools](#tools), [must-read articles](#articles), [documentations](#documentation), [k8s manifests](#kubernetes-components-included) & [useful commands](#useful-commands). 
 
 <br><br><br><br>
 
