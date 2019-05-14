@@ -2,7 +2,7 @@
 
 # gobernetes
 
-Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kubernetes-components-included), [documentations](#documentation) & [useful commands](#useful-commands). 
+Collection of miscellaneous [helper tools](#tools), [must-read articles](#articles), [personal documentations](#documentation), [Kubernetes resources](#kubernetes-components-included) & [useful commands](#useful-commands). 
 
 <br><br><br><br>
 
@@ -22,31 +22,6 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * [kubectl cheat sheet](/https://kubernetes.io/docs/reference/kubectl/cheatsheet//)
 * [Fish auto completion for kubectl](https://gist.github.com/Aracki/cf422173371d2118ae94bb6821f074e0)
 
-## Kubernetes components included:
-`k8s_manifests/` folder contains all the manifests for: 
-* Simple web server application written in Go - [go-ws](https://github.com/Aracki/go-ws)
-* MongoDB
-* Ingress Controllers - in order for the Ingress resources to work _(read this [Bare metal considerations](https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#bare-metal-considerations))_
-   * [Nginx](https://github.com/kubernetes/ingress-nginx)
-   * [Traefik](https://docs.traefik.io/user-guide/kubernetes/)
-* [Monitoring stack](https://github.com/coreos/prometheus-operator)
-   * Prometheus   
-   * Alert Manager
-   * Grafana
-* CI/CD stack
-   * [Jenkins](k8s_manifests/jenkins)
-   * [Keel](k8s_manifests/keel)
-* [cert-manager](https://github.com/jetstack/cert-manager/) - for automated provisioning TLS certs for both staging/production environments
-* Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) & [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-a-configmap) for storing secret and non-secret configurations
-
-## Documentation:
-* [Bootstrap AWS infrastructure](docs/01-bootstrap-aws-infrastructure.md)
-* [Bootstrap K8s cluster with kubeadm](docs/02-bootstrap-k8s-cluster.md)
-* [Set up GlusterFS](docs/03-set-up-glusterfs.md)
-* [Set up Ingress + TLS termination with cert-manager](docs/04-set-up-ingress.md)
-* [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
-* [Set up private docker registry](docs/06-set-up-private-registry.md)
-
 ## Articles:
 * K8s components - good introduction material
 	* [Understanding kubernetes networking: pods](https://medium.com/google-cloud/understanding-kubernetes-networking-pods-7117dd28727)
@@ -65,6 +40,32 @@ Collection of miscellaneous [helper tools](#tools), [Kubernetes resources](#kube
 * Great [article](https://medium.com/spire-labs/utilizing-kubernetes-liveness-and-readiness-probes-to-automatically-recover-from-failure-2fe0314f2b2e) about utilizing k8s liveness and readiness probes to automatically recover from failure
 * Great [article](https://docs.bitnami.com/kubernetes/how-to/configure-rbac-in-your-kubernetes-cluster/) about configuring *RBAC*
 * [Pain(less) NGINX Ingress](https://danielfm.me/posts/painless-nginx-ingress.html) - Daniel Martins about Nginx Ingress outages and config reloading
+
+## Documentation:
+Personal documentation on how I set things up:
+* [Bootstrap AWS infrastructure](docs/01-bootstrap-aws-infrastructure.md)
+* [Bootstrap K8s cluster with kubeadm](docs/02-bootstrap-k8s-cluster.md)
+* [Set up GlusterFS](docs/03-set-up-glusterfs.md)
+* [Set up Ingress + TLS termination with cert-manager](docs/04-set-up-ingress.md)
+* [Set up monitoring with Prometheus and Grafana](docs/05-set-up-monitoring.md)
+* [Set up private docker registry](docs/06-set-up-private-registry.md)
+
+## Kubernetes components included:
+`k8s_manifests/` folder contains all the manifests for: 
+* Simple web server application written in Go - [go-ws](https://github.com/Aracki/go-ws)
+* MongoDB
+* Ingress Controllers - in order for the Ingress resources to work _(read this [Bare metal considerations](https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#bare-metal-considerations))_
+   * [Nginx](https://github.com/kubernetes/ingress-nginx)
+   * [Traefik](https://docs.traefik.io/user-guide/kubernetes/)
+* [Monitoring stack](https://github.com/coreos/prometheus-operator)
+   * Prometheus   
+   * Alert Manager
+   * Grafana
+* CI/CD stack
+   * [Jenkins](k8s_manifests/jenkins)
+   * [Keel](k8s_manifests/keel)
+* [cert-manager](https://github.com/jetstack/cert-manager/) - for automated provisioning TLS certs for both staging/production environments
+* Kubernetes [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) & [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-a-configmap) for storing secret and non-secret configurations
 
 ## Useful commands
 * List all resources in a namespace: `kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n <namespace>`
