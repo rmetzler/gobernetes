@@ -19,7 +19,7 @@ Collection of miscellaneous [helper tools](#tools), [must-read articles](#articl
 * [kubefwd](https://github.com/txn2/kubefwd) - bulk port forwarding k8s services for local dev
 * [kube-ps1](https://github.com/jonmosco/kube-ps1) - k8s prompt info for bash and zsh
 * [pop eye](https://github.com/derailed/popeye) - k8s cluster resource sanitizer
-* [kubectl cheat sheet](/https://kubernetes.io/docs/reference/kubectl/cheatsheet//)
+* [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 * [Fish auto completion for kubectl](https://gist.github.com/Aracki/cf422173371d2118ae94bb6821f074e0)
 
 ## Articles:
